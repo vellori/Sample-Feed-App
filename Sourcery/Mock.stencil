@@ -1,0 +1,11 @@
+{% for type in types.protocols %}
+  {% if type.annotations.Mock %}
+  class {{ type.name }}Mock: {{ type.name }} {
+    {% for method in type.methods %}
+    func {{ method.name }}({% for param in method.parameters %}{{param.name}}: {{param.typeName}}{% if not forloop.last %}, {% endif %}{% endfor %}){% if method.returnTypeName %} -> {{ method.returnTypeName }}{% endif %} {
+      // TODO: record calls
+    }
+    {% endfor %}
+  }
+  {% endif %}
+{% endfor %}

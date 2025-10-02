@@ -1,0 +1,20 @@
+sources:
+  - ../FeedAppKit      # scan my source code
+templates:
+  - Mock.stencil
+output:
+  FeedAppKit/Mocks
+
+sources:
+  - ../ArticleDetailKit      # scan my source code
+templates:
+  - Mock.stencil
+output:
+  ArticleDetailKit/Mocks
+
+sources:
+  - ../ArticleFeedKit      # scan my source code
+templates:
+  - Mock.stencil
+output:
+  ArticleFeedKit/Mocks
