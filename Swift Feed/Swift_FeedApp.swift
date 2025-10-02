@@ -12,18 +12,22 @@ import ArticleFeedKit
 import FeedDesignKit
 
 @main
-struct Swift_FeedApp: App {
+struct SwiftFeedApp: App {
     var body: some Scene {
         WindowGroup {
-            Text(String(localized: "ciaoaoaoao"))
-            UseCases
-                .ArticleFeedUseCases
-                .landing
-                .view(
-                    detailViewProvider: { article in
-                        UseCases.ArticleDetail.Default.make(article: article)
-                    }
-                )
+            if AppEnvironment.isRunningTests {
+                Text("Running Tests")
+            } else {
+                Text(String(localized: "ciaoaoaoao"))
+                UseCases
+                    .ArticleFeedUseCases
+                    .landing
+                    .view(
+                        detailViewProvider: { article in
+                            UseCases.ArticleDetail.Default.make(article: article)
+                        }
+                    )
+            }
         }
     }
 }

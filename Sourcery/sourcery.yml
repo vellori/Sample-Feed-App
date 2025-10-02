@@ -3,18 +3,18 @@ sources:
 templates:
   - Mock.stencil
 output:
-  FeedAppKit/Mocks
+   ../FeedAppKitTests/Mocks
 
 sources:
   - ../ArticleDetailKit      # scan my source code
 templates:
-  - Mock.stencil
+  - ./Mock.stencil
 output:
-  ArticleDetailKit/Mocks
+   ../ArticleDetailKitTests/Mocks
 
 sources:
   - ../ArticleFeedKit      # scan my source code
 templates:
   - Mock.stencil
 output:
-  ArticleFeedKit/Mocks
+   ../ArticleFeedKitTests/Mocks

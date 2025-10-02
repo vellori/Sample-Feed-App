@@ -12,8 +12,7 @@ extension UseCases {
     public enum ArticleDetail {
         public struct Default {
             public init() {}
-            
-            public static func make(article: ArticleDetailModel)-> some View {
+            public static func make(article: ArticleDetailModel) -> some View {
                 ArticleDetailView(
                     viewModel: .init(article: article)
                 )

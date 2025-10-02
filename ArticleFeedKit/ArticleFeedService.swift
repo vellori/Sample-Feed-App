@@ -15,7 +15,7 @@ public protocol ArticleFeedServiceProtocol {
 struct ArticleFeedService: ArticleFeedServiceProtocol {
     let urlDownloader: URLDownloaderProtocol
     let decodingService: ArticleFeedDecodingServiceProtocol
-    
+
     func fetchArticles() async -> Result<ArticleFeedModel, Swift.Error> {
         guard let url = URL(string: "https://www.macstories.net/feed/json/") else {
             return .failure(Error.malformedURL)
@@ -23,7 +23,7 @@ struct ArticleFeedService: ArticleFeedServiceProtocol {
         let networkResult = await Task.detached {
             return await urlDownloader.download(url: url)
         }.value
-        
+
         switch networkResult {
         case .success(let data):
             do {

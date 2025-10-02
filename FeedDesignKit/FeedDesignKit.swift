@@ -10,4 +10,3 @@ import Foundation
 class FeedDesignKit {
     static var bundle = Bundle(for: FeedDesignKit.self)
 }
-

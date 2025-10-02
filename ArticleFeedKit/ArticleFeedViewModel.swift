@@ -9,6 +9,7 @@ import Foundation
 import Combine
 import FeedAppKit
 
+// sourcery: Mock
 protocol ArticleFeedViewModelProtocol {
     var state: ArticleFeedViewModel.State { get }
     func load() async
@@ -18,12 +19,12 @@ public class ArticleFeedViewModel: ObservableObject {
     private let articleFeedService: ArticleFeedServiceProtocol
     private var data: Model?
     @Published var state: State
-    
+
     init(articleFeedService: any ArticleFeedServiceProtocol) {
         self.articleFeedService = articleFeedService
         self.state = .loading
     }
-    
+
     func load() async {
         let result = await self.articleFeedService.fetchArticles()
         switch result {
@@ -34,7 +35,7 @@ public class ArticleFeedViewModel: ObservableObject {
             self.state = .error(Error.badServerResponse)
         }
     }
-    
+
     func item(id: ArticleDetailModel.ID) -> DetailModel {
         let result = self.data?.items.first(where: { $0.id == id })
         guard let result else {
@@ -48,13 +49,13 @@ extension ArticleFeedViewModel {
     public typealias Model = ArticleFeedModel
     public typealias DetailModel = ArticleDetailModel
     typealias ViewData = ArticleFeedViewData
-    
+
     enum State {
         case loading
         case loaded(ViewData)
         case error(Error)
     }
-    
+
     enum Error: Swift.Error {
         case badServerResponse
     }

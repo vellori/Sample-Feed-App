@@ -8,10 +8,9 @@
 import SwiftUI
 import FeedAppKit
 
-
 struct ArticleFeedViewData {
     let articles: [ArticleFeedEntryViewData]
-    
+
     init(_ feed: ArticleFeedModel) {
         self.articles = feed.items.map(ArticleFeedEntryViewData.init)
     }
@@ -21,7 +20,7 @@ struct ArticleFeedEntryViewData: Identifiable {
     let id: ArticleDetailModel.ID
     let title: String
     let lastModified: String
-    
+
     init(_ articleData: ArticleDetailModel) {
         self.title = articleData.title
         self.lastModified = "ciao"
@@ -34,13 +33,13 @@ public struct ArticleFeedView<Content: View>: View {
     public typealias DetailViewProvider = (ArticleDetailModel.ID) -> Content
     @StateObject var viewModel: ViewModel
     @State private var path = NavigationPath()
-    
+
     private var detailViewProvider: DetailViewProvider
     public init(viewModel: ViewModel, detailViewProvider: @escaping DetailViewProvider) {
         self._viewModel = .init(wrappedValue: viewModel)
         self.detailViewProvider = detailViewProvider
     }
-    
+
     public var body: some View {
         switch self.viewModel.state {
         case .error:
@@ -71,8 +70,8 @@ public struct ArticleFeedView<Content: View>: View {
     }
 }
 
-//#if DEBUG
-//#Preview("Article feed") {
+// #if DEBUG
+// #Preview("Article feed") {
 //    ArticleFeedView(
 //        viewModel: .init(
 //            articleFeedService: MockArticleFeedService(
@@ -82,9 +81,9 @@ public struct ArticleFeedView<Content: View>: View {
 //            )
 //        )
 //    )
-//}
+// }
 //
-//#Preview("Error") {
+// #Preview("Error") {
 //    ArticleFeedView(
 //        viewModel: .init(
 //            articleFeedService: MockArticleFeedService(
@@ -92,17 +91,17 @@ public struct ArticleFeedView<Content: View>: View {
 //            )
 //        )
 //    )
-//}
+// }
 //
-//#Preview("Forever loading") {
+// #Preview("Forever loading") {
 //    ArticleFeedView(
 //        viewModel: .init(
 //            articleFeedService: MockArticleFeedService()
 //        )
 //    )
-//}
+// }
 //
-//struct MockArticleFeedService: ArticleFeedServiceProtocol {
+// struct MockArticleFeedService: ArticleFeedServiceProtocol {
 //    private let result: Result<ArticleFeedModel, any Error>
 //    init(result: Result<ArticleFeedModel, any Error>) {
 //        self.result = result
@@ -123,6 +122,6 @@ public struct ArticleFeedView<Content: View>: View {
 //            return result
 //        }
 //    }
-//}
+// }
 //
-//#endif
+// #endif

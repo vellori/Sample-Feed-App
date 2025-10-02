@@ -8,6 +8,7 @@
 import Foundation
 import FeedAppKit
 
+// sourcery: Mock
 protocol ArticleFeedDecodingServiceProtocol {
     func decode(_ data: Data) throws -> ArticleFeedModel?
 }

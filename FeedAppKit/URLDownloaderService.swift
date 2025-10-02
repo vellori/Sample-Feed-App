@@ -13,7 +13,7 @@ public protocol URLDownloaderProtocol {
 
 public struct URLDownloaderService: URLDownloaderProtocol {
     public init() {}
-    
+
     public func download(url: URL) async -> Result<Data, Error> {
         do {
             var request = URLRequest(url: url)

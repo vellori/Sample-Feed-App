@@ -1,0 +1,63 @@
+{
+  "configurations" : [
+    {
+      "id" : "ADC92704-8692-4388-97D2-CB7B8C4ACA67",
+      "name" : "Test Scheme Action",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+    "performanceAntipatternCheckerEnabled" : true,
+    "targetForVariableExpansion" : {
+      "containerPath" : "container:Swift Feed.xcodeproj",
+      "identifier" : "656CB2282E8B39190006625B",
+      "name" : "Swift Feed"
+    }
+  },
+  "testTargets" : [
+    {
+      "parallelizable" : true,
+      "target" : {
+        "containerPath" : "container:Swift Feed.xcodeproj",
+        "identifier" : "656CB2352E8B391A0006625B",
+        "name" : "Swift FeedTests"
+      }
+    },
+    {
+      "enabled" : false,
+      "parallelizable" : true,
+      "target" : {
+        "containerPath" : "container:Swift Feed.xcodeproj",
+        "identifier" : "656CB23F2E8B391A0006625B",
+        "name" : "Swift FeedUITests"
+      }
+    },
+    {
+      "parallelizable" : true,
+      "target" : {
+        "containerPath" : "container:Swift Feed.xcodeproj",
+        "identifier" : "656292462E8C0556006469BD",
+        "name" : "ArticleDetailKitTests"
+      }
+    },
+    {
+      "parallelizable" : true,
+      "target" : {
+        "containerPath" : "container:Swift Feed.xcodeproj",
+        "identifier" : "656292662E8C0584006469BD",
+        "name" : "ArticleFeedKitTests"
+      }
+    },
+    {
+      "parallelizable" : true,
+      "target" : {
+        "containerPath" : "container:Swift Feed.xcodeproj",
+        "identifier" : "656292942E8C05C8006469BD",
+        "name" : "FeedAppKitTests"
+      }
+    }
+  ],
+  "version" : 1
+}
