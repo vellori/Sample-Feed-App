@@ -8,6 +8,11 @@
 import Foundation
 
 public struct ArticleFeedModel: Decodable {
+    public init(title: String, items: [ArticleDetailModel]) {
+        self.title = title
+        self.items = items
+    }
+    
     enum CodingKeys: String, CodingKey {
         case title
         case items

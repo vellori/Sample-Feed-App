@@ -8,6 +8,13 @@
 import Foundation
 
 public struct ArticleDetailModel: Decodable, Identifiable {
+    public init(title: String, url: URL, dateModified: Date, contentText: String) {
+        self.title = title
+        self.url = url
+        self.dateModified = dateModified
+        self.contentText = contentText
+    }
+    
     enum CodingKeys: String, CodingKey {
         case title, url, dateModified, contentText
     }

@@ -70,18 +70,13 @@ public struct ArticleFeedView<Content: View>: View {
     }
 }
 
-// #if DEBUG
-// #Preview("Article feed") {
-//    ArticleFeedView(
-//        viewModel: .init(
-//            articleFeedService: MockArticleFeedService(
-//                result: .success(
-//                    ArticleFeedModel(title: "ciao", items: [.init(title: "title", url: URL(string: "test.com")!, dateModified:Date(), contentText: "ciao")])
-//                )
-//            )
-//        )
-//    )
-// }
+#Preview("Article feed") {
+    ArticleFeedView(
+        viewModel: .init(articleFeedService: MockArticleFeedService.mockGood),
+        detailViewProvider: { _ in
+            EmptyView()
+        })
+}
 //
 // #Preview("Error") {
 //    ArticleFeedView(
@@ -100,28 +95,36 @@ public struct ArticleFeedView<Content: View>: View {
 //        )
 //    )
 // }
-//
-// struct MockArticleFeedService: ArticleFeedServiceProtocol {
-//    private let result: Result<ArticleFeedModel, any Error>
-//    init(result: Result<ArticleFeedModel, any Error>) {
-//        self.result = result
-//        self.neverReturn = false
-//    }
-//    
-//    private let neverReturn: Bool
-//    init() {
-//        self.result = .failure(NSError(domain: "test", code: 0, userInfo: nil))
-//        self.neverReturn = true
-//    }
-//    
-//    func fetchArticles() async -> Result<ArticleFeedModel, any Error> {
-//        if self.neverReturn {
-//            return await withCheckedContinuation { _ in }
-//        }
-//        else {
-//            return result
-//        }
-//    }
-// }
-//
-// #endif
+#if DEBUG
+
+struct MockArticleFeedService: ArticleFeedServiceProtocol {
+    private init(result: Result<ArticleFeedModel, any Error>, neverReturn: Bool) {
+        self.result = result
+        self.neverReturn = neverReturn
+    }
+    
+    private let result: Result<ArticleFeedModel, any Error>
+
+    static var mockGood: MockArticleFeedService {
+        MockArticleFeedService(
+            result: .success(
+                .init(title: "Title", items: [
+                    .mockArticle1,
+                    .mockArticle1,
+                    .mockArticle1,
+                ])
+            ), neverReturn: false)
+    }
+
+    private let neverReturn: Bool
+
+    func fetchArticles() async -> Result<ArticleFeedModel, any Error> {
+        if self.neverReturn {
+            return await withCheckedContinuation { _ in }
+        }
+        else {
+            return result
+        }
+    }
+}
+#endif

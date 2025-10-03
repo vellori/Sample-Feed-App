@@ -35,13 +35,13 @@ struct ArticleFeedViewModelTests {
     }
 
     @Test func testLoadedState() async {
-        let article1 = ArticleDetailModel.random
-        let article2 = ArticleDetailModel.random
-        let article3 = ArticleDetailModel.random
+        let article1 = ArticleDetailModel.mockRandom
+        let article2 = ArticleDetailModel.mockRandom
+        let article3 = ArticleDetailModel.mockRandom
 
         let feedService = ArticleFeedServiceProtocolMock()
         feedService.fetchArticlesReturnValue = .success(
-            .init(title: .random, items: [article1, article2, article3])
+            .init(title: .mockRandom, items: [article1, article2, article3])
         )
 
         let sut = ArticleFeedViewModel(articleFeedService: feedService)

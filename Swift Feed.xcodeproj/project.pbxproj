@@ -22,6 +22,7 @@
 		656292BD2E8C09F7006469BD /* FeedAppKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6562928D2E8C05C7006469BD /* FeedAppKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		656670642E8EBAE70065A192 /* FeedDesignKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6566705E2E8EBAE70065A192 /* FeedDesignKit.framework */; };
 		656670652E8EBAE70065A192 /* FeedDesignKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6566705E2E8EBAE70065A192 /* FeedDesignKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		65785C412E8FA7A8000C8EAB /* Prefire in Frameworks */ = {isa = PBXBuildFile; productRef = 65785C402E8FA7A8000C8EAB /* Prefire */; };
 		65FBA98F2E8F046E0001DA57 /* SnapshotTesting in Frameworks */ = {isa = PBXBuildFile; productRef = 65FBA98E2E8F046E0001DA57 /* SnapshotTesting */; };
 /* End PBXBuildFile section */
 
@@ -179,23 +180,6 @@
 		65FBA9902E8F05210001DA57 /* Swift Feed.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = "Swift Feed.xctestplan"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
-/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
-		65785C2B2E8F0B28000C8EAB /* Exceptions for "FeedAppKitTests" folder in "ArticleDetailKitTests" target */ = {
-			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
-			membershipExceptions = (
-				Helpers.swift,
-			);
-			target = 656292462E8C0556006469BD /* ArticleDetailKitTests */;
-		};
-		65785C2C2E8F0B28000C8EAB /* Exceptions for "FeedAppKitTests" folder in "ArticleFeedKitTests" target */ = {
-			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
-			membershipExceptions = (
-				Helpers.swift,
-			);
-			target = 656292662E8C0584006469BD /* ArticleFeedKitTests */;
-		};
-/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
-
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		656292402E8C0556006469BD /* ArticleDetailKit */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
@@ -224,10 +208,6 @@
 		};
 		6562929B2E8C05C8006469BD /* FeedAppKitTests */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
-			exceptions = (
-				65785C2B2E8F0B28000C8EAB /* Exceptions for "FeedAppKitTests" folder in "ArticleDetailKitTests" target */,
-				65785C2C2E8F0B28000C8EAB /* Exceptions for "FeedAppKitTests" folder in "ArticleFeedKitTests" target */,
-			);
 			path = FeedAppKitTests;
 			sourceTree = "<group>";
 		};
@@ -282,6 +262,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				65785C412E8FA7A8000C8EAB /* Prefire in Frameworks */,
 				656292682E8C0584006469BD /* ArticleFeedKit.framework in Frameworks */,
 				65FBA98F2E8F046E0001DA57 /* SnapshotTesting in Frameworks */,
 			);
@@ -502,6 +483,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				65785C3F2E8FA77F000C8EAB /* PBXTargetDependency */,
 				65FBA9A22E8F071B0001DA57 /* PBXTargetDependency */,
 				6562926A2E8C0584006469BD /* PBXTargetDependency */,
 				6562926C2E8C0584006469BD /* PBXTargetDependency */,
@@ -512,6 +494,7 @@
 			name = ArticleFeedKitTests;
 			packageProductDependencies = (
 				65FBA98E2E8F046E0001DA57 /* SnapshotTesting */,
+				65785C402E8FA7A8000C8EAB /* Prefire */,
 			);
 			productName = ArticleFeedKitTests;
 			productReference = 656292672E8C0584006469BD /* ArticleFeedKitTests.xctest */;
@@ -726,6 +709,7 @@
 			packageReferences = (
 				6566709F2E8F02C00065A192 /* XCRemoteSwiftPackageReference "swift-snapshot-testing" */,
 				65FBA9942E8F06C40001DA57 /* XCRemoteSwiftPackageReference "SwiftLintPlugins" */,
+				65785C382E8FA129000C8EAB /* XCRemoteSwiftPackageReference "Prefire" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 656CB22A2E8B39190006625B /* Products */;
@@ -985,6 +969,10 @@
 			isa = PBXTargetDependency;
 			target = 656CB2282E8B39190006625B /* Swift Feed */;
 			targetProxy = 656CB2412E8B391A0006625B /* PBXContainerItemProxy */;
+		};
+		65785C3F2E8FA77F000C8EAB /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			productRef = 65785C3E2E8FA77F000C8EAB /* PrefireTestsPlugin */;
 		};
 		65FBA9962E8F06FA0001DA57 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
@@ -1831,6 +1819,14 @@
 				minimumVersion = 1.18.7;
 			};
 		};
+		65785C382E8FA129000C8EAB /* XCRemoteSwiftPackageReference "Prefire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/BarredEwe/Prefire.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.1.0;
+			};
+		};
 		65FBA9942E8F06C40001DA57 /* XCRemoteSwiftPackageReference "SwiftLintPlugins" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SimplyDanny/SwiftLintPlugins";
@@ -1842,6 +1838,16 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		65785C3E2E8FA77F000C8EAB /* PrefireTestsPlugin */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 65785C382E8FA129000C8EAB /* XCRemoteSwiftPackageReference "Prefire" */;
+			productName = "plugin:PrefireTestsPlugin";
+		};
+		65785C402E8FA7A8000C8EAB /* Prefire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 65785C382E8FA129000C8EAB /* XCRemoteSwiftPackageReference "Prefire" */;
+			productName = Prefire;
+		};
 		65FBA98E2E8F046E0001DA57 /* SnapshotTesting */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 6566709F2E8F02C00065A192 /* XCRemoteSwiftPackageReference "swift-snapshot-testing" */;
