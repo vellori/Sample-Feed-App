@@ -18,7 +18,7 @@ protocol ArticleFeedViewModelProtocol {
 public class ArticleFeedViewModel: ObservableObject {
     private let articleFeedService: ArticleFeedServiceProtocol
     private var data: Model?
-    @Published var state: State
+    @Published public var state: State
 
     init(articleFeedService: any ArticleFeedServiceProtocol) {
         self.articleFeedService = articleFeedService
@@ -37,6 +37,7 @@ public class ArticleFeedViewModel: ObservableObject {
     }
 
     func item(id: ArticleDetailModel.ID) -> DetailModel {
+
         let result = self.data?.items.first(where: { $0.id == id })
         guard let result else {
             fatalError()
@@ -45,9 +46,9 @@ public class ArticleFeedViewModel: ObservableObject {
     }
 }
 
-extension ArticleFeedViewModel {
-    public typealias Model = ArticleFeedModel
-    public typealias DetailModel = ArticleDetailModel
+public extension ArticleFeedViewModel {
+    typealias Model = ArticleFeedModel
+    typealias DetailModel = ArticleDetailModel
     typealias ViewData = ArticleFeedViewData
 
     enum State {

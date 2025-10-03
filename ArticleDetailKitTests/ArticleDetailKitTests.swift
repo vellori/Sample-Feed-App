@@ -17,7 +17,7 @@ struct ArticleDetailKitTests {
     }
 
     @Test func testArticleDetailState() async throws {
-        let article = ArticleDetailModel.dummy
+        let article = ArticleDetailModel.random
         let sut = ArticleDetailViewModel(article: article)
         switch sut.state {
         case .loaded(let loadedArticle):

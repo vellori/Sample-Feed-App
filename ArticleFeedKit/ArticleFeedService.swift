@@ -8,6 +8,7 @@
 import Foundation
 import FeedAppKit
 
+// sourcery: Mock
 public protocol ArticleFeedServiceProtocol {
     func fetchArticles() async -> Result<ArticleFeedModel, Error>
 }

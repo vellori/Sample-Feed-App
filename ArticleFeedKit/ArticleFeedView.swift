@@ -8,7 +8,7 @@
 import SwiftUI
 import FeedAppKit
 
-struct ArticleFeedViewData {
+public struct ArticleFeedViewData {
     let articles: [ArticleFeedEntryViewData]
 
     init(_ feed: ArticleFeedModel) {
